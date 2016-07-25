@@ -4,6 +4,7 @@ gem 'spec'
 
 gem 'devise'
 gem 'omniauth'
+gem 'pry'
 
 # wechat related
 gem 'wechat'
