@@ -12,6 +12,10 @@ Refinery::Core::Engine.routes.draw do
           to: 'authentication/devise/users#new', as: :new_signup
       post "/#{Refinery::Core.backend_route}/users/register",
           to: 'authentication/devise/users#create', as: :signup
+      get "/#{Refinery::Core.backend_route}/users/auth/:provider",
+          to: 'authentication/devise/callbacks'
+      get "/#{Refinery::Core.backend_route}users/auth/:action/callback",
+          to: 'authentication/devise/callbacks#wechat_qiye'
     end
 
     devise_for :authentication_devise_user,
