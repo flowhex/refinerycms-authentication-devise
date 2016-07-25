@@ -25,7 +25,7 @@ Refinery::Core::Engine.routes.draw do
                  passwords: 'refinery/authentication/devise/passwords',
                  sessions: 'refinery/authentication/devise/sessions',
                  registrations: 'refinery/authentication/devise/users',
-                 controllers: { omniauth_callbacks: 'refinery/callbacks'}
+                 omniauth_callbacks: 'refinery/callbacks'
                },
                skip: [:registrations],
                path_names: { sign_out: 'logout',
