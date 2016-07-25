@@ -2,6 +2,7 @@ source "https://ruby.taobao.org"
 
 gem 'spec'
 
+gem 'devise'
 gem 'omniauth'
 
 # wechat related
