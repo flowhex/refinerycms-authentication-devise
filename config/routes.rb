@@ -15,7 +15,7 @@ Refinery::Core::Engine.routes.draw do
       get "/#{Refinery::Core.backend_route}/users/auth/:provider",
           to: 'authentication/devise/callbacks#wechat_qiye'
       get "/#{Refinery::Core.backend_route}users/auth/:action/callback",
-          to: 'authentication/devise/callbacks#wechat_qiye', as: :authentication_devise_user_omniauth_callback
+          to: 'authentication/devise/callbacks#wechat_qiye'
     end
 
     devise_for :authentication_devise_user,
