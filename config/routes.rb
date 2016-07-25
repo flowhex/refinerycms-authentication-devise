@@ -20,7 +20,8 @@ Refinery::Core::Engine.routes.draw do
                controllers: {
                  passwords: 'refinery/authentication/devise/passwords',
                  sessions: 'refinery/authentication/devise/sessions',
-                 registrations: 'refinery/authentication/devise/users'
+                 registrations: 'refinery/authentication/devise/users',
+                 callback: 'refinery/authentication/devise/callback'
                },
                skip: [:registrations],
                path_names: { sign_out: 'logout',
