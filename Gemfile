@@ -48,3 +48,10 @@ end
 if File.exist? local_gemfile = File.expand_path("../.gemfile", __FILE__)
   eval File.read(local_gemfile)
 end
+
+gem 'omniauth'
+
+# wechat related
+gem 'wechat'
+# gem 'wx_pay'
+gem 'omniauth-wechat-oauth2', git: 'https://github.com/skinnyworm/omniauth-wechat-oauth2', branch: 'master'
