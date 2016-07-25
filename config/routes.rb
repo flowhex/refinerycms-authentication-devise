@@ -13,7 +13,7 @@ Refinery::Core::Engine.routes.draw do
       post "/#{Refinery::Core.backend_route}/users/register",
           to: 'authentication/devise/users#create', as: :signup
       get "/#{Refinery::Core.backend_route}/users/auth/:provider",
-          to: 'authentication/devise/callbacks'
+          to: 'authentication/devise/callbacks#wechat_qiye'
       get "/#{Refinery::Core.backend_route}users/auth/:action/callback",
           to: 'authentication/devise/callbacks#wechat_qiye', as: :authentication_devise_user_omniauth_callback
     end
