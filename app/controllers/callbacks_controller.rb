@@ -9,6 +9,10 @@ class CallbacksController < ::Devise::OmniauthCallbacksController
     logger.debug('############################################')
     logger.debug(request.env["omniauth.auth"])
     logger.debug('############################################')
+    if request.env["omniauth.auth"].uid.nil?
+      redirect_to refinery.new_authentication_devise_user_session_path
+      return false
+    end
     @user = Refinery::Authentication::Devise::User.from_omniauth(request.env["omniauth.auth"])
     # redirect_to refinery.authentication_devise_admin_users_path,
     #            :notice => t('created', :what => @user.username, :scope => 'refinery.crudify')
@@ -24,6 +28,6 @@ class CallbacksController < ::Devise::OmniauthCallbacksController
     logger.debug(request.env["omniauth.error"])
     logger.debug(request.env["omniauth.error.type"])
     logger.debug('###########################################')
-    redirect_to refinery.root_path
+    redirect_to refinery.new_authentication_devise_user_session_path
   end
 end
