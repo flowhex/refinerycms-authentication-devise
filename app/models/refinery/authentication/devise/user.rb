@@ -27,11 +27,17 @@ module Refinery
           where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
             user.provider = auth.provider
             user.uid = auth.uid
-            user.email = auth.info.email
-            # user.password = devise.friendly_token[0,20]
-            user.roles = 1
-            user.name = auth.info.name
+            if auth.extra.raw_info.email.nil?
+              email = auth.weixinid
+            else
+              email = auth.extra.raw_info.email
+            end
+            user.email = email
+            user.password = SecureRandom.hex(8)
+            user.role_ids = [1]
+            user.username = auth.info.name
           end
+
         end
 
         # Setup accessible (or protected) attributes for your model
